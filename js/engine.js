@@ -29,6 +29,13 @@ var Engine = (function(global) {
     canvas.height = 606;
     doc.body.appendChild(canvas);
 
+    /* Set Modal Varibles*/
+    const modalW = document.querySelector('.hideW');
+    const modalL = document.querySelector('.hideL');
+    const playAgainW = document.querySelector('.modal-button');
+    const playAgainL = document.querySelector('.modal-button');
+
+
     /* This function serves as the kickoff point for the game loop itself
      * and handles properly calling the update and render methods.
      */
@@ -53,18 +60,23 @@ var Engine = (function(global) {
          */
         lastTime = now;
 
+
+
         /* Use the browser's requestAnimationFrame function to call this
          * function again as soon as the browser is able to draw another frame.
          */
         if (player.winner === true) {
             console.log('Game Over from engine');
             win.cancelAnimationFrame(id);
+            modalW.classList.toggle('hideW');
+         } else if (player.loser === true) {
+            console.log('Game over loser');
+            win.cancelAnimationFrame(id);
+            modalL.classList.toggle('hideL');
          }
-        //console.log('yoyoyoy')
         else {
             id = win.requestAnimationFrame(main);
         }
-        //id = win.requestAnimationFrame(main);
     }
 
     /* This function does some initial setup that should only occur once,
@@ -117,7 +129,7 @@ var Engine = (function(global) {
          */
         var rowImages = [
                 'images/water-block.png',   // Top row is water
-                'images/grass-block.png',
+                'images/grass-block.png',   // Row 1 of 1 of grass
                 'images/stone-block.png',   // Row 1 of 3 of stone
                 'images/stone-block.png',   // Row 2 of 3 of stone
                 'images/stone-block.png',   // Row 3 of 3 of stone
@@ -171,9 +183,25 @@ var Engine = (function(global) {
      * those sorts of things. It's only called once by the init() method.
      */
     function reset() {
-        // noop
-        /*this.x = this.startX;
-        this.y = this.startY;*/
+        playAgainW.addEventListener('click', event =>{
+            modalW.classList.toggle('hideW');
+            //modalL.classList.toggle('hideL');
+            player.reset();
+            player.winner = false;
+            crossingsMade = 0;
+            collDetected = 0;
+            win.requestAnimationFrame(main);
+        });
+        playAgainL.addEventListener('click', event =>{
+            //modalW.classList.toggle('hideW');
+            console.log('FUBAR');
+            modalL.classList.toggle('hideL');
+            player.reset();
+            player.winner = false;
+            crossingsMade = 0;
+            collDetected = 0;
+            win.requestAnimationFrame(main);
+        });
     }
 
     /* Go ahead and load all of the images we know we're going to need to

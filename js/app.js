@@ -48,6 +48,7 @@ class Player {
         this.y = this.startY;
         this.sprite = 'images/char-boy.png';
         this.winner = false;
+        this.loser = false;
     }
     //function to render player on screen
     render() {
@@ -90,17 +91,23 @@ reset() {
     update() {
         //Collision check
         for(let enemy of allEnemies) {
-            console.log(this.y,this.x);
+            //console.log(this.y,this.x);
             if (enemy.y === this.y && (enemy.x + enemy.moveX > this.x
                 && enemy.x < this.x + this.moveX) ) {
                 console.log('ouch');
+                if (collDetected < 2) {
+                    collDetected ++;
+
+                } else {
+                    this.loser = true;
+                }
                 this.reset();
             }
         }
         //looking for winner
         if (this.y === 60) {
             console.log('crossed');
-                        if (crossingsMade < 3) {
+            if (crossingsMade < 3) {
                 crossingsMade ++;
                 console.log('good');
                 this.reset();
@@ -124,6 +131,7 @@ const enemy4 = new Enemy((-101*3), 0, 200);
 const enemy5 = new Enemy((-202*5), 166, 300);
 
 let crossingsMade = 0;
+let collDetected = 0;
 const allEnemies = [];
 allEnemies.push(enemy1);//,enemy2,enemy3,enemy4,enemy5);
 
