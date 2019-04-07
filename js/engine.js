@@ -32,8 +32,11 @@ var Engine = (function(global) {
     /* Set Modal Varibles*/
     const modalW = document.querySelector('.hideW');
     const modalL = document.querySelector('.hideL');
-    const playAgainW = document.querySelector('.modal-button');
-    const playAgainL = document.querySelector('.modal-button');
+    const playAgainW = document.querySelector('.modal-buttonW');
+    const playAgainL = document.querySelector('.modal-buttonL');
+    //const playAgain = document.querySelectorAll('.modal-button');
+    //const playAgain = [...document.querySelectorAll('.modal-button')];
+    //const playAgain = document.querySelectorAll('.modal-button');
 
 
     /* This function serves as the kickoff point for the game loop itself
@@ -182,6 +185,12 @@ var Engine = (function(global) {
      * handle game reset states - maybe a new game menu or a game over screen
      * those sorts of things. It's only called once by the init() method.
      */
+     /*playAgain.addEventListener('click', event => {
+        const button = event.target;
+        if (button.classlist.contains('modal-button')) {
+            reset(button);
+            }*/
+        //});
     function reset() {
         playAgainW.addEventListener('click', event =>{
             modalW.classList.toggle('hideW');
@@ -197,12 +206,13 @@ var Engine = (function(global) {
             console.log('FUBAR');
             modalL.classList.toggle('hideL');
             player.reset();
-            player.winner = false;
+            player.loser = false;
             crossingsMade = 0;
             collDetected = 0;
             win.requestAnimationFrame(main);
         });
     }
+
 
     /* Go ahead and load all of the images we know we're going to need to
      * draw our game level. Then set init as the callback method, so that when

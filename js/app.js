@@ -55,7 +55,7 @@ class Player {
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
     }
 
-//Reset Player
+//Reset Player back to starting position
 reset() {
     this.x = this.startX;
     this.y = this.startY;
@@ -76,17 +76,6 @@ reset() {
             this.y -= this.moveY;
             //console.log('up');
         }
-/*        if ((arrow === 'up' && player.y === 60)) {
-            if (crossingsMade < 1) {
-                crossingsMade ++;
-                console.log('good');
-                this.reset();
-        } else {
-            //console.log('Game OVER');
-            this.winner = true;
-            console.log(this.winner);
-            }
-        }*/
     }
     update() {
         //Collision check
@@ -97,7 +86,6 @@ reset() {
                 console.log('ouch');
                 if (collDetected < 2) {
                     collDetected ++;
-
                 } else {
                     this.loser = true;
                 }
@@ -127,13 +115,13 @@ const player = new Player();
 const enemy1 = new Enemy(-101, 83, 50);
 const enemy2 = new Enemy(-101, 83, 400);
 const enemy3 = new Enemy(-101, 166, 300);
-const enemy4 = new Enemy((-101*3), 0, 200);
+const enemy4 = new Enemy((-101*3), 249, 200);
 const enemy5 = new Enemy((-202*5), 166, 300);
 
 let crossingsMade = 0;
 let collDetected = 0;
 const allEnemies = [];
-allEnemies.push(enemy1);//,enemy2,enemy3,enemy4,enemy5);
+allEnemies.push(enemy1,enemy2,enemy3,enemy4,enemy5);
 
 
 // This listens for key presses and sends the keys to your
