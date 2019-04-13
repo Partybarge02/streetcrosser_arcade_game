@@ -63,8 +63,6 @@ var Engine = (function(global) {
          */
         lastTime = now;
 
-
-
         /* Use the browser's requestAnimationFrame function to call this
          * function again as soon as the browser is able to draw another frame.
          */
@@ -136,7 +134,7 @@ var Engine = (function(global) {
                 'images/stone-block.png',   // Row 1 of 3 of stone
                 'images/stone-block.png',   // Row 2 of 3 of stone
                 'images/stone-block.png',   // Row 3 of 3 of stone
-                'images/grass-block.png',   // Row 1 of 2 of grass
+                'images/grass-block.png'   // Row 1 of 2 of grass
                 //'images/grass-block.png'    // Row 2 of 2 of grass
             ],
             numRows = 6,
@@ -185,16 +183,9 @@ var Engine = (function(global) {
      * handle game reset states - maybe a new game menu or a game over screen
      * those sorts of things. It's only called once by the init() method.
      */
-     /*playAgain.addEventListener('click', event => {
-        const button = event.target;
-        if (button.classlist.contains('modal-button')) {
-            reset(button);
-            }*/
-        //});
     function reset() {
         playAgainW.addEventListener('click', event =>{
             modalW.classList.toggle('hideW');
-            //modalL.classList.toggle('hideL');
             player.reset();
             player.winner = false;
             crossingsMade = 0;
@@ -202,7 +193,6 @@ var Engine = (function(global) {
             win.requestAnimationFrame(main);
         });
         playAgainL.addEventListener('click', event =>{
-            //modalW.classList.toggle('hideW');
             console.log('FUBAR');
             modalL.classList.toggle('hideL');
             player.reset();
