@@ -23,17 +23,12 @@ var Engine = (function(global) {
         canvas = doc.createElement('canvas'),
         ctx = canvas.getContext('2d'),
         lastTime,
-        id;
+        //requestID from win.requestAnimationFrame
+        reqID;
 
     canvas.width = 505;
     canvas.height = 606;
     doc.body.appendChild(canvas);
-
-    /* Set Modal Varibles*/
-    const modalW = document.querySelector('.hideW');
-    const modalL = document.querySelector('.hideL');
-    const playAgainW = document.querySelector('.modal-buttonW');
-    const playAgainL = document.querySelector('.modal-buttonL');
 
     /* This function serves as the kickoff point for the game loop itself
      * and handles properly calling the update and render methods.
@@ -62,19 +57,28 @@ var Engine = (function(global) {
         /* Use the browser's requestAnimationFrame function to call this
          * function again as soon as the browser is able to draw another frame.
          */
+        /* Code to stop AnimationFrame and display winner/loser
+         * modals*/
         if (player.winner === true) {
-            console.log('Game Over from engine');
-            win.cancelAnimationFrame(id);
+            //console.log('Game Over from engine');
+            win.cancelAnimationFrame(reqID);
             modalW.classList.toggle('hideW');
          } else if (player.loser === true) {
-            console.log('Game over loser');
-            win.cancelAnimationFrame(id);
+            //console.log('Game over loser');
+            win.cancelAnimationFrame(reqID);
             modalL.classList.toggle('hideL');
          }
         else {
-            id = win.requestAnimationFrame(main);
+            reqID = win.requestAnimationFrame(main);
         }
     }
+
+    /* Set Modal Varibles*/
+    const modalW = document.querySelector('.hideW');
+    const modalL = document.querySelector('.hideL');
+    const playAgainW = document.querySelector('.buttonW');
+    const playAgainL = document.querySelector('.buttonL');
+
 
     /* This function does some initial setup that should only occur once,
      * particularly setting the lastTime variable that is required for the
@@ -181,24 +185,23 @@ var Engine = (function(global) {
      */
     function reset() {
         playAgainW.addEventListener('click', event =>{
-            modalW.classList.toggle('hideW');
-            player.reset();
+            player.rtnStartPos();
             player.winner = false;
             crossingsMade = 0;
             collDetected = 0;
             strXssings[0].textContent = crossingsMade;
             colliades[0].textContent = collDetected;
+            modalW.classList.toggle('hideW');
             win.requestAnimationFrame(main);
         });
         playAgainL.addEventListener('click', event =>{
-            console.log('FUBAR');
-            modalL.classList.toggle('hideL');
-            player.reset();
+            player.rtnStartPos();
             player.loser = false;
             crossingsMade = 0;
             collDetected = 0;
             strXssings[0].textContent = crossingsMade;
             colliades[0].textContent = collDetected;
+            modalL.classList.toggle('hideL');
             win.requestAnimationFrame(main);
         });
     }
