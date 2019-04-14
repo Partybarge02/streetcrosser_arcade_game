@@ -4,12 +4,13 @@
 
 - [App Info](#appinfo)
 - [Run Instructions](#instructions)
+- [Rules of Play](#rulesof play)
 - [Contributing](#contributing)
 
 ## **App info**
 - A take on the classic Atari 2600 game frogger written with javascript, html, css and img files.
-- Can be run using any statndard internet browser(google chrome, firefox, safari and ..etc).
-- Download and extract zip file or clone the repository to a Directory(folder) on device equiped with keyboard.
+- Can be run using any standard internet browser(google chrome, firefox, safari and ..etc).
+- Download and extract zip file or clone the repository to a Directory(folder) on device equipped with keyboard.
 
 ## **Run Instructions**
 - Simply open the index.html file using the browser of choice.
@@ -17,7 +18,7 @@
 get get to the green grass on the other side of cobble stone
 path.
 
-## **Rules of play**
+## **Rules of Play**
 - Goal = Cross path 5 time before colliding with bugs three times
 that have infested the path.
 

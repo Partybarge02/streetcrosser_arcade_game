@@ -1,5 +1,3 @@
-const strXssings = document.querySelectorAll('.moves');
-const colliades = document.querySelectorAll('.coll');
 //let crossingsMade = 0;
 // Enemies our player must avoid
 var Enemy = function(x,y,speed) {
@@ -128,11 +126,14 @@ const enemy3 = new Enemy(-201, 166, 70);
 const enemy4 = new Enemy((-101*3), 249, 60);
 const enemy5 = new Enemy((-201*5), 166, 50);
 
-let crossingsMade = 0;
-let collDetected = 0;
 const allEnemies = [];
 allEnemies.push(enemy1,enemy2,enemy3,enemy4,enemy5);
 
+// Varibles for Score panel
+const strXssings = document.querySelectorAll('.moves');
+const colliades = document.querySelectorAll('.coll');
+let crossingsMade = 0;
+let collDetected = 0;
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
