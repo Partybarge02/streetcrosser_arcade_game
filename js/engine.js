@@ -34,10 +34,6 @@ var Engine = (function(global) {
     const modalL = document.querySelector('.hideL');
     const playAgainW = document.querySelector('.modal-buttonW');
     const playAgainL = document.querySelector('.modal-buttonL');
-    //const playAgain = document.querySelectorAll('.modal-button');
-    //const playAgain = [...document.querySelectorAll('.modal-button')];
-    //const playAgain = document.querySelectorAll('.modal-button');
-
 
     /* This function serves as the kickoff point for the game loop itself
      * and handles properly calling the update and render methods.
@@ -190,6 +186,8 @@ var Engine = (function(global) {
             player.winner = false;
             crossingsMade = 0;
             collDetected = 0;
+            strXssings[0].textContent = crossingsMade;
+            colliades[0].textContent = collDetected;
             win.requestAnimationFrame(main);
         });
         playAgainL.addEventListener('click', event =>{
@@ -199,6 +197,8 @@ var Engine = (function(global) {
             player.loser = false;
             crossingsMade = 0;
             collDetected = 0;
+/*            strXssings[0].textContent = crossingsMade;
+            colliades[0].textContent = collDetected;*/
             win.requestAnimationFrame(main);
         });
     }

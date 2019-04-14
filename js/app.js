@@ -1,3 +1,6 @@
+const strXssings = document.querySelectorAll('.moves');
+const colliades = document.querySelectorAll('.coll');
+//let crossingsMade = 0;
 // Enemies our player must avoid
 var Enemy = function(x,y,speed) {
     // Variables applied to each of our instances go here,
@@ -37,12 +40,12 @@ Enemy.prototype.render = function() {
 
 class Player {
     constructor() {
-        //Player jumps 1/2 a block at a time
+        //Player jumps half a block at a time
         this.moveX = 50.5;//101;
         this.moveY = 41.5;//83;
-        //Player start
-        this.startX = this.moveX*4;//2;
-        this.startY = (this.moveY*8) + 70; //used to be 2
+        //Player start position
+        this.startX = this.moveX*4;
+        this.startY = (this.moveY*8) + 70;
         this.x = this.startX;
         this.y = this.startY;
         this.sprite = 'images/char-boy.png';
@@ -87,7 +90,10 @@ reset() {
                 //alert(this.x);
                 if (collDetected < 2) {
                     collDetected ++;
+                    colliades[0].textContent = collDetected;
                 } else {
+                    collDetected ++;
+                    colliades[0].textContent = collDetected;
                     this.loser = true;
                 }
                 this.reset();
@@ -96,12 +102,15 @@ reset() {
         //looking for winner
         if (this.y === 70) {
             console.log('crossed');
-            if (crossingsMade < 3) {
+            if (crossingsMade < 4) {
                 crossingsMade ++;
-                console.log('good');
+                console.log(crossingsMade);
+                strXssings[0].textContent = crossingsMade;
                 this.reset();
         } else {
             //console.log('Game OVER');
+            crossingsMade ++;
+            strXssings[0].textContent = crossingsMade;
             this.winner = true;
             console.log(this.winner);
             }
@@ -115,8 +124,8 @@ reset() {
 const player = new Player();
 const enemy1 = new Enemy(-101, 83, 50);
 const enemy2 = new Enemy(-401, 83, 50);
-const enemy3 = new Enemy(-201, 166, 50);
-const enemy4 = new Enemy((-101*3), 249, 50);
+const enemy3 = new Enemy(-201, 166, 70);
+const enemy4 = new Enemy((-101*3), 249, 60);
 const enemy5 = new Enemy((-201*5), 166, 50);
 
 let crossingsMade = 0;
