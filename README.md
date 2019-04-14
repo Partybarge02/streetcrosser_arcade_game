@@ -2,19 +2,27 @@
 
 ## Table of Contents
 
-- [Instructions](#instructions)
+- [App Info](#appinfo)
+- [Run Instructions](#instructions)
 - [Contributing](#contributing)
 
-## Instructions
+## **App info**
+- A take on the classic Atari 2600 game frogger written with javascript, html, css and img files.
+- Can be run using any statndard internet browser(google chrome, firefox, safari and ..etc).
+- Download and extract zip file or clone the repository to a Directory(folder) on device equiped with keyboard.
 
-Use this [rubric](https://review.udacity.com/#!/rubrics/15/view) for self-checking your submission.
+## **Run Instructions**
+- Simply open the index.html file using the browser of choice.
+- Use Arrow keys to maneuver Player left,right,up and down to
+get get to the green grass on the other side of cobble stone
+path.
 
-Make sure the functions you write are **object-oriented** - either class functions (like `Player` and `Enemy`) or class prototype functions such as `Enemy.prototype.checkCollisions`. Also make sure that the keyword `this` is used appropriately within your class and class prototype functions to refer to the object the function is called upon.
+## **Rules of play**
+- Goal = Cross path 5 time before colliding with bugs three times
+that have infested the path.
 
-Your **README.md** file should be updated with instructions on both how to 1. Run and 2. Play your arcade game.
-
-For detailed instructions on how to get started, check out this [guide](https://docs.google.com/document/d/1v01aScPjSWCCWQLIpFqvg3-vXLH2e8_SZQKC8jNO0Dc/pub?embedded=true).
-
-## Contributing
-
-This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
+## **Resources**
+- Udacity FEWD - Object-Oriented Javascript
+- Udacity knowledge blogs
+- W3schools - http://www.w3schools.com
+- The Stack-overflow community

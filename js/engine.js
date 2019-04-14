@@ -197,8 +197,8 @@ var Engine = (function(global) {
             player.loser = false;
             crossingsMade = 0;
             collDetected = 0;
-/*            strXssings[0].textContent = crossingsMade;
-            colliades[0].textContent = collDetected;*/
+            strXssings[0].textContent = crossingsMade;
+            colliades[0].textContent = collDetected;
             win.requestAnimationFrame(main);
         });
     }
