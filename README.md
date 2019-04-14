@@ -18,8 +18,7 @@ get get to the green grass on the other side of cobble stone
 path.
 
 ## **Rules of play**
-- Goal = Cross path 5 time before colliding with bugs three times
-that have infested the path.
+- Attempt to cross cobblestone path 5 time before colliding with Enemy Bugs three times that have infested the path.
 
 ## **Resources**
 - Udacity FEWD - Object-Oriented Javascript
