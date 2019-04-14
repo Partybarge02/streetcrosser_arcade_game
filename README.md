@@ -4,6 +4,7 @@
 
 - [App Info](#appinfo)
 - [Run Instructions](#instructions)
+- [Rules of play](#rules)
 - [Contributing](#contributing)
 
 ## **App info**
