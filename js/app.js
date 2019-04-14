@@ -37,8 +37,8 @@ Enemy.prototype.render = function() {
 class Player {
     constructor() {
         //Player jumps half a block at a time
-        this.moveX = 50.5;//101;
-        this.moveY = 41.5;//83;
+        this.moveX = 50.5;
+        this.moveY = 41.5;
         //Player start position
         this.plyrSrtPosX = this.moveX*4;
         this.plyrSrtPosY = (this.moveY*8) + 70;
@@ -91,6 +91,7 @@ rtnStartPos() {
                 } else {
                     collDetected ++;
                     colliades[0].textContent = collDetected;
+                    //set player.loser for engine.js function
                     this.loser = true;
                 }
                 this.rtnStartPos();
@@ -107,6 +108,7 @@ rtnStartPos() {
         } else {
             crossingsMade ++;
             strXssings[0].textContent = crossingsMade;
+            //set player.loser for engine.js function
             this.winner = true;
             //console.log(this.winner);
             }
